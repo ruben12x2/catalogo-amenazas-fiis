@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self';">
+    <title>Agregar Amenaza | FIIS-UNAS</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body data-pagina="agregar">
+
+    <header class="cabecera">
+        <div class="contenedor cabecera-contenido">
+            <div>
+                <h1 class="titulo-sitio">Catalogo de Amenazas</h1>
+                <p class="subtitulo-sitio">Ingenieria en Ciberseguridad - UNAS</p>
+            </div>
+            <button id="btn-menu" class="boton-menu" aria-expanded="false" aria-controls="menu-principal">
+                Menu
+            </button>
+            <nav id="menu-principal" class="navegacion" aria-label="Principal">
+                <ul class="lista-menu">
+                    <li><a href="index.html" class="enlace-menu">Catalogo</a></li>
+                    <li><a href="agregar.html" class="enlace-menu activo" aria-current="page">Agregar amenaza</a></li>
+                    <li><a href="comparar.html" class="enlace-menu">Comparar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contenedor contenido-principal">
+        <section class="panel" aria-labelledby="titulo-form">
+            <h2 id="titulo-form">Registrar Amenaza</h2>
+            <p>Todos los campos son obligatorios. La fuente debe iniciar con http:// o https://.</p>
+
+            <div id="mensaje-form" class="alerta oculto" role="alert"></div>
+
+            <form id="form-amenaza" novalidate>
+                <input type="hidden" id="campo-id">
+
+                <div class="grilla-dos">
+                    <div class="campo">
+                        <label for="nombre">Nombre de la amenaza</label>
+                        <input type="text" id="nombre" aria-describedby="err-nombre"
+                            placeholder="Ej. Ransomware WannaCry">
+                        <span id="err-nombre" class="texto-error"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="tipo">Tipo</label>
+                        <select id="tipo" aria-describedby="err-tipo">
+                            <option value="">Seleccione un tipo</option>
+                            <option value="malware">Malware</option>
+                            <option value="phishing">Phishing</option>
+                            <option value="ransomware">Ransomware</option>
+                            <option value="ingenieria social">Ingenieria social</option>
+                            <option value="DDoS">DDoS</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <span id="err-tipo" class="texto-error"></span>
+                    </div>
+                </div>
+
+                <div class="grilla-dos">
+                    <div class="campo">
+                        <label for="impacto">Nivel de impacto (1 al 5)</label>
+                        <select id="impacto" aria-describedby="err-impacto">
+                            <option value="">Seleccione impacto</option>
+                            <option value="1">1 - Muy bajo</option>
+                            <option value="2">2 - Bajo</option>
+                            <option value="3">3 - Medio</option>
+                            <option value="4">4 - Alto</option>
+                            <option value="5">5 - Critico</option>
+                        </select>
+                        <span id="err-impacto" class="texto-error"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fuente">Fuente (URL http o https)</label>
+                        <input type="url" id="fuente" aria-describedby="err-fuente"
+                            placeholder="https://www.incibe.es/...">
+                        <span id="err-fuente" class="texto-error"></span>
+                    </div>
+                </div>
+
+                <div class="campo">
+                    <label for="descripcion">Descripcion (20 a 400 caracteres)</label>
+                    <textarea id="descripcion" rows="3" aria-describedby="err-descripcion"></textarea>
+                    <span id="err-descripcion" class="texto-error"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="propagacion">Forma de propagacion</label>
+                    <input type="text" id="propagacion" aria-describedby="err-propagacion"
+                        placeholder="Ej. Correos adjuntos, vulnerabilidad de red...">
+                    <span id="err-propagacion" class="texto-error"></span>
+                </div>
+
+                <div class="campo">
+                    <label for="indicadores">Indicadores para reconocerla</label>
+                    <input type="text" id="indicadores" aria-describedby="err-indicadores"
+                        placeholder="Ej. Archivos cifrados, lentitud extrema...">
+                    <span id="err-indicadores" class="texto-error"></span>
+                </div>
+
+                <div class="grilla-dos">
+                    <div class="campo">
+                        <label for="prevencion1">Medida de prevencion 1</label>
+                        <input type="text" id="prevencion1" aria-describedby="err-prevencion1">
+                        <span id="err-prevencion1" class="texto-error"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="prevencion2">Medida de prevencion 2</label>
+                        <input type="text" id="prevencion2" aria-describedby="err-prevencion2">
+                        <span id="err-prevencion2" class="texto-error"></span>
+                    </div>
+                </div>
+
+                <div class="grupo-botones">
+                    <button type="submit" id="btn-guardar" class="btn btn-primario">Guardar amenaza</button>
+                    <a href="index.html" class="btn btn-borde">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p>Equipo 5 - Catalogo de Amenazas | Ramos Retis, Noemi Dayana y Cajan Terrones, Ruben Joaquin</p>
+        </div>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
