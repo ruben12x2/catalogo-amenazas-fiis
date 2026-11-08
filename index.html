@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Politica de seguridad basica sin scripts externos -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self';">
+    <title>Catalogo de Amenazas | FIIS-UNAS</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body data-pagina="catalogo">
+
+    <header class="cabecera">
+        <div class="contenedor cabecera-contenido">
+            <div>
+                <h1 class="titulo-sitio">Catalogo de Amenazas</h1>
+                <p class="subtitulo-sitio">Ingenieria en Ciberseguridad - UNAS</p>
+            </div>
+            <button id="btn-menu" class="boton-menu" aria-expanded="false" aria-controls="menu-principal">
+                Menu
+            </button>
+            <nav id="menu-principal" class="navegacion" aria-label="Principal">
+                <ul class="lista-menu">
+                    <li><a href="index.html" class="enlace-menu activo" aria-current="page">Catalogo</a></li>
+                    <li><a href="agregar.html" class="enlace-menu">Agregar amenaza</a></li>
+                    <li><a href="comparar.html" class="enlace-menu">Comparar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="contenedor contenido-principal">
+        <!-- Seccion de resumen y acciones de datos -->
+        <section class="panel" aria-labelledby="titulo-resumen">
+            <div class="panel-cabecera">
+                <h2 id="titulo-resumen">Resumen por Tipo</h2>
+                <div class="grupo-botones">
+                    <button type="button" id="btn-ejemplos" class="btn btn-secundario">Cargar 10 ejemplos</button>
+                    <button type="button" id="btn-exportar" class="btn btn-borde">Exportar JSON</button>
+                </div>
+            </div>
+            <div id="contenedor-resumen" class="grilla-resumen" aria-live="polite"></div>
+        </section>
+
+        <!-- Seccion de busqueda, filtros y orden -->
+        <section class="panel" aria-labelledby="titulo-filtros">
+            <h2 id="titulo-filtros">Filtros de Busqueda</h2>
+            <form id="form-filtros" class="grilla-filtros">
+                <div class="campo">
+                    <label for="input-buscar">Buscar texto</label>
+                    <input type="search" id="input-buscar" placeholder="Nombre, descripcion o indicador...">
+                </div>
+
+                <div class="campo">
+                    <label for="filtro-tipo">Tipo de amenaza</label>
+                    <select id="filtro-tipo">
+                        <option value="todos">Todos</option>
+                        <option value="malware">Malware</option>
+                        <option value="phishing">Phishing</option>
+                        <option value="ransomware">Ransomware</option>
+                        <option value="ingenieria social">Ingenieria social</option>
+                        <option value="DDoS">DDoS</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="filtro-impacto">Nivel de impacto</label>
+                    <select id="filtro-impacto">
+                        <option value="todos">Todos (1 a 5)</option>
+                        <option value="5">Nivel 5 (Critico)</option>
+                        <option value="4">Nivel 4 (Alto)</option>
+                        <option value="3">Nivel 3 (Medio)</option>
+                        <option value="2">Nivel 2 (Bajo)</option>
+                        <option value="1">Nivel 1 (Muy bajo)</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="orden-lista">Ordenar por</label>
+                    <select id="orden-lista">
+                        <option value="impacto-desc">Impacto (Mayor a menor)</option>
+                        <option value="impacto-asc">Impacto (Menor a mayor)</option>
+                        <option value="nombre-asc">Nombre (A - Z)</option>
+                    </select>
+                </div>
+
+                <div class="campo campo-check">
+                    <label for="filtro-favoritos">
+                        <input type="checkbox" id="filtro-favoritos">
+                        Solo mostrar favoritos
+                    </label>
+                </div>
+            </form>
+        </section>
+
+        <!-- Listado de tarjetas -->
+        <section aria-labelledby="titulo-lista">
+            <div class="panel-cabecera">
+                <h2 id="titulo-lista">Listado de Amenazas</h2>
+                <span id="contador-lista" class="etiqueta-contador">0 registros</span>
+            </div>
+            <div id="mensaje-catalogo" class="alerta oculto" role="status" aria-live="polite"></div>
+            <div id="contenedor-tarjetas" class="grilla-tarjetas"></div>
+        </section>
+    </main>
+
+    <footer class="pie">
+        <div class="contenedor">
+            <p>Equipo 5 - Catalogo de Amenazas | Ramos Retis, Noemi Dayana y Cajan Terrones, Ruben Joaquin</p>
+        </div>
+    </footer>
+
+    <script src="js/datos.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
