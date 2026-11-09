@@ -7,7 +7,7 @@ Proyecto de Programacion II (Unidad II) - Escuela Profesional de Ingenieria en C
 - Cajan Terrones, Ruben Joaquin
 
 ## Enlace a GitHub Pages
-- Sitio web: https://USUARIO_RUBEN.github.io/catalogo-amenazas-fiis/
+- Sitio web: https://ruben12x2.github.io/catalogo-amenazas-fiis/
 
 ## Control de Etapas
 - [x] Etapa 1 (v0.1): Estructura HTML semantica y navegacion (PR #1)
